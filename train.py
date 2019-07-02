@@ -8,9 +8,7 @@ from tensorflow.keras import utils
 
 import pandas as pd
 import numpy as np
-
 import cv2
-from PIL import Image
 
 
 # tf.data.experimental.TFRecordWriter
@@ -53,14 +51,6 @@ def predict(model):
             img_array[i][j]=255-img_array[i][j]
     result=img_array.reshape(1,28,28,1)
     return model.predict(result)
-
-def show_image():
-    feature.reshape(42000,28,28,1)
-    a=feature*np.ones((42000,28,28,3))
-    a=a.astype(np.uint8 )
-    im=Image.fromarray(a[12])
-    im.show()
-    
 
 def train():
     # tbCallBack = TensorBoard(log_dir='.\logs',  # log 目录
